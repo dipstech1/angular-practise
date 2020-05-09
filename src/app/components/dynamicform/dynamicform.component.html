@@ -1,0 +1,25 @@
+<div>
+    <div>
+        <form [formGroup]="myFormGroup">
+            <div *ngFor="let controls of form_template">
+                <div [ngSwitch]="controls.type">
+                    <div *ngSwitchCase="'textBox'">
+                        <input type="text" placeholder="{{controls.label}}"/>
+                    </div>
+
+                    <div *ngSwitchCase="'number'">
+                            <input type="number" placeholder="{{controls.label}}"/>
+                    </div>
+
+                    <div *ngSwitchCase="'select'">
+                        <label>{{controls.label}}</label>
+                        <select>
+                            <option *ngFor="let val of controls.options">{{val}}</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
